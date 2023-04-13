@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  certbot:
+    image: certbot/dns-cloudflare
+    volumes:
+      - certbot_etc:/etc/letsencrypt
+      - ./cloudflare.ini:/root/cloudflare.ini
+    command: >-
+      certonly -dns-cloudflare
+      --dns-cloudflare-cerdentials /root/cloudflare.ini
+      --dns-cloudflare-propagation-seconds 15
+      --email ryan-dev@kakao.com
+      --agree-tos --no-eff-email
+      --force-renewal
+      -d trigger.kr
+      -d *.trigger.kr
+    
+    
