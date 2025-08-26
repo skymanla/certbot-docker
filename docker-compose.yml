@@ -15,5 +15,6 @@ services:
       --force-renewal
       -d trigger.kr
       -d *.trigger.kr
-    
-    
+      -d saja-boys.com
+      -d *.saja-boys.com
+
